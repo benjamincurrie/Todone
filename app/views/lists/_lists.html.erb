@@ -1,0 +1,15 @@
+<div class="grid_3 lists">
+  <h5>Your Task Lists</h5>
+  
+  <% unless @lists.empty? %>
+    <ol class="lists">
+    <% @lists.each do |list| %>
+      <li><%= link_to list.name, list %></li>
+    <% end %>
+    </ol>
+  <% else %>
+    <p>You do not yet have any lists.</p>
+  <% end %>
+
+  <%= link_to '<span class="new">New List</span>'.html_safe, new_list_path, :class => "button silver rounded center" %>
+</div>

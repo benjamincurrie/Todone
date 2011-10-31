@@ -1,0 +1,30 @@
+<div class="grid_12">
+
+  <h1>Sign Up</h1>
+
+  <p>Signing up, like everything with ToDo(ne), is incredibly easy, simply fill out the form below and hit the button.</p>
+
+  <%= form_for @user do |f| %>
+    <% if @user.errors.any? %>
+      <div class="message error">
+        <h6>The following errors were found:</h6>
+        <ul>
+          <% for message in @user.errors.full_messages %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <fieldset>
+      <ol>
+        <li><%= f.label :username %><%= f.text_field :username, :placeholder => :username %></li>
+        <li><%= f.label :name %><%= f.text_field :name, :placeholder => "Firstname Lastname" %></li>
+        <li><%= f.label :email %><%= f.text_field :email, :placeholder => "email@address.com" %></li>
+        <li><%= f.label :password %><%= f.password_field :password, :placeholder => :password %></li>
+        <li><%= f.label :password_confirmation %><%= f.password_field :password_confirmation, :placeholder => :password_confirmation %></li>
+        <li><%= f.submit "Sign Up" %></li>
+      </ol>
+    </fieldset>
+  <% end %>
+
+</div>

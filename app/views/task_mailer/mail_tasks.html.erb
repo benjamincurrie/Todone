@@ -1,0 +1,6 @@
+<p><strong><%= @user.name %>, you have some tasks to get todone:</strong></p>
+<ol>
+<% @tasks.each do |task| %>
+<li><%= task.name %></li>
+<% end %>
+</ol>

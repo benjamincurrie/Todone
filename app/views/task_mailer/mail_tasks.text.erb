@@ -1,0 +1,6 @@
+<%= @user.name %>, you have some tasksto get todone:
+===============================================
+
+<% @tasks.each do |task| %>
+ - <%= task.name %>
+<% end %>

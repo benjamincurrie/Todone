@@ -1,0 +1,15 @@
+<div class="grid_12">
+
+  <h1>Sign in</h1>
+
+  <%= form_tag sessions_path do %>
+    <fieldset>
+      <ol>
+        <li><%= label_tag :username %><%= text_field_tag :username, params[:username] %></li>
+        <li><%= label_tag :password %><%= password_field_tag :password %></li>
+        <li><%= submit_tag "Sign In" %></li>
+      </ol>
+    </fieldset>
+  <% end %>
+
+</div>

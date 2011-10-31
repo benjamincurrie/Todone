@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="ToDo(ne) allows users manage their personal tasks as well as share tasks lists with friends." />
+    <meta name="robots" content="index, follow" />
+    
+    <title>ToDo(ne) - A todo task manager</title>
+    
+    <link rel="shortcut icon" href="<%= image_path("favicon.png") %>" />
+    
+    <!-- Google Web Fonts: www.google.com/webfonts -->
+    <link href='http://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope|Philosopher:400,700' rel='stylesheet' type='text/css'>
+    
+    <%= stylesheet_link_tag "960/reset", "960/960", "960/text", "style", "jquery.ui", :cache => "stylesheets" %>
+    <%= stylesheet_link_tag "print", :media => "print" %>
+    
+    <%= csrf_meta_tag %>
+    
+  </head>
+
+  <body>
+    <div class="notifications">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :class => "message #{name}" %>
+      <% end %>
+    </div>
+    
+    <div id="header" class="container_12">
+      <a href="<%= root_url%>" class="grid_4">
+        <h1><span class="green light">TO<strong>DO</strong></span><strong>NE</strong></h1>
+        <h2>Task <span class="right">Manager</span></h2>
+      </a>
+      <% if user %>
+        <div class="grid_8 loggedin">You are logged in as <strong><%= user.name %></strong></div>
+      <% end %>
+      <div id="nav" class="grid_8">
+        <span class="public">
+          <%= link_to "Home", root_url %>
+          <%= link_to "About", root_url+"about" %>
+          <%= link_to "Tour", root_url+"tour" %>
+        </span>
+        
+        <% if user %>
+            <%= link_to "Your Lists", lists_path, :class => "button silver" %>
+            <%= link_to "Sign Out", sign_out_path, :method => :delete, :class => "button red" %>
+        <% else %>
+            <%= link_to "Sign Up", sign_up_path, :class => "button green" %>
+            <%= link_to "Sign In", sign_in_path, :class => "button blue" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div id="content" class="container_12">
+      <%= yield %>
+    </div>
+    
+    <div id="footer" class="container_12 ">
+      <div class="grid_12 c-align">
+        <h6>© 2011 Benjamin Currie</h6>
+      </div>
+    </div>
+  </body>
+  
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.min.js"></script>
+  <%= javascript_include_tag :defaults, :cache => "javascripts" %>
+  
+</html>
