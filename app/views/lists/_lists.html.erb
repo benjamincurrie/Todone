@@ -10,6 +10,16 @@
   <% else %>
     <p>You do not yet have any lists.</p>
   <% end %>
-
+  
   <%= link_to '<span class="new">New List</span>'.html_safe, new_list_path, :class => "button silver rounded center" %>
+  
+  <% unless @collaborations.empty? %>
+    <h5>Your Shared Lists</h5>
+    <ol class="lists">
+    <% @collaborations.each do |collaboration| %>
+      <li><%= collaboration.list_id %></li>
+    <% end %>
+    </ol>
+  <% end %>
+
 </div>

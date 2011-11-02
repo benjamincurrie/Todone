@@ -18,4 +18,5 @@ class TaskTest < ActiveSupport::TestCase
     assert task.errors[:name].any?
     assert task.errors[:list_id].any?
   end
+
 end

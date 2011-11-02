@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   has_many :lists
   has_many :tasks, :through => :lists
   
+  has_many :collaborations
+  
   attr_accessible :username, :name, :email, :password, :password_confirmation
   
   attr_accessor :password

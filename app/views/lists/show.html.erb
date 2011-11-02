@@ -5,7 +5,7 @@
   <%= link_to 'Edit', edit_list_path(@list), :class => "button" %>
   <%= link_to 'Delete', @list, :confirm => 'Are you sure?', :method => :delete, :class => "button" %>
 </div>
-<div class="grid_9">
+<div class="grid_6">
   <ul class="tasks">
     <% @list.tasks.each do |task| %>
       <li class="<%= task.complete ? 'complete' : ''%>">
@@ -23,6 +23,24 @@
   </ul>
   
   <%= form_for [@list, @task] do |form| %>
-    <%= form.text_field :name, :placeholder => "New Task" %> <%= form.text_field :due, :type=>'date', :class=>'datepicker', :placeholder => "Date Due" %> <%= form.submit %>
+    <%= form.text_field :name, :placeholder => "New Task", :class=>'new' %> <%= form.text_field :due, :type=>'date', :class=>'datepicker', :placeholder => "Date Due" %> <%= form.submit %>
+  <% end %>
+</div>
+
+<div class="grid_3">
+  <h5>Collaborators</h5>
+  
+  <ul class="collaborations">
+    <!-- I do not know how to fix this association -->
+    <% @list.collaborations.each do |collaboration| %>
+      <li>
+        User ID: <%= collaboration.user_id %>
+        <% #link_to 'Delete', [@list, collaboration], :confirm => 'Are you sure?', :method => :delete, :class => "button small right" %>
+      </li>
+    <% end %>
+  </ul>
+  
+  <%= form_for [@list, @collaboration] do |f| %>
+    <%= select "collaboration", "user_id", User.all.collect {|u| [ u.name, u.id ] } %> <%= f.submit "Add" %>
   <% end %>
 </div>

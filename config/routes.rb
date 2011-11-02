@@ -4,6 +4,7 @@ Todone::Application.routes.draw do
   
   resources :lists do
     resources :tasks
+    resources :collaborations
   end
   
   #Offline storage:

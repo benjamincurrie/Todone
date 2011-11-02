@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   attr_accessor :completed
   before_filter :find_list
   before_filter :find_task, :only => [:show, :edit, :update, :destroy]
-  before_filter :authorize, :only => [:show, :edit, :update, :destroy]
+  before_filter :authorize
   respond_to :html, :xml, :json
   
   def index

@@ -1,7 +1,8 @@
 class ListsController < ApplicationController
   before_filter :authenticate
   before_filter :find_lists
-  before_filter :find_list, :only => [:show, :edit, :update, :destroy]
+  before_filter :get_user_array
+  before_filter :find_list, :only => [:show, :edit, :update, :destroy, :share]
   before_filter :authorize, :only => [:show, :edit, :update, :destroy]
   respond_to :html, :xml, :json
   
@@ -11,6 +12,7 @@ class ListsController < ApplicationController
 
   def show
     @task = @list.tasks.new
+    @collaboration = @list.collaborations.new
     respond_with(@list)
   end
 
@@ -58,11 +60,19 @@ class ListsController < ApplicationController
   private
   
   def find_lists
-    @lists = List.find(:all, :conditions => ["user_id = ?", user.id])
+    @lists = user.lists
+    @collaborations = user.collaborations
   end
   
   def find_list
     @list = List.find(params[:id])
+  end
+  
+  def get_user_array
+    @users = Array.new
+    User.all.each do |u|
+      @users[u.id] = u.name
+    end
   end
 
 end
