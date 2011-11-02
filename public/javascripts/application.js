@@ -1,3 +1,9 @@
+// $(function() {
+//   $(window.applicationCache).bind("error", function() {
+//     alert("There was an error when loading the cache manifest.");
+//   });
+// });
+
 $(document).ready(function() {
 	// Fix placeholders
 	if (!("placeholder" in document.createElement("input"))) {

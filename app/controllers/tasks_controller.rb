@@ -7,6 +7,10 @@ class TasksController < ApplicationController
   before_filter :authorize, :only => [:show, :edit, :update, :destroy]
   respond_to :html, :xml, :json
   
+  def index
+    respond_with(@list.tasks)
+  end
+  
   def create
     @task = @list.tasks.new(params[:task])
     if @task.save

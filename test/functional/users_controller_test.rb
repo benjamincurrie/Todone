@@ -1,9 +1,21 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
-  test "should get new" do
-    get :new
-    assert_response :success
+
+  setup do
+    @user = users(:joe)
+  end
+  
+  test "Create User" do
+      post :create, {
+        'username' => "new.user",
+        'name' => "New User",
+        'email' => "new@user.com",
+        'password' => "12345",
+        'password_confirmation' => "12345"
+      }
+
+    assert_redirected_to root_path(assigns(:user))
   end
 
 end

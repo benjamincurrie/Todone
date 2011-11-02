@@ -1,11 +1,17 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
+milk:
+  name: Milk
   complete: false
-  due: 2011-10-21
+  list: shopping
 
-two:
-  name: MyString
+eggs:
+  name: Eggs
+  complete: true
+  list: shopping
+
+bacon:
+  name: Chunky Bacon
   complete: false
   due: 2011-10-21
+  list: grocery

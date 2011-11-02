@@ -1,15 +1,15 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  username: MyString
-  name: MyString
-  email: MyString
-  password_hash: MyString
-  password_salt: MyString
+joe:
+  username: joe.bloggs
+  name: Joe Bloggs
+  email: joe@bloggs.com
+  password_hash: $2a$10$72j8KelyCKDg1ubaHa5TNuq9q..p31Xn3s5CU650s.5IFrH7Nb7ZG
+  password_salt: $2a$10$72j8KelyCKDg1ubaHa5TNu
 
-two:
-  username: MyString
-  name: MyString
-  email: MyString
-  password_hash: MyString
-  password_salt: MyString
+john:
+  username: john.smith
+  name: John Smith
+  email: john@smith.com
+  password_hash: $2a$10$72j8KelyCKDg1ubaHa5TNuq9q..p31Xn3s5CU650s.5IFrH7Nb7ZG
+  password_salt: $2a$10$72j8KelyCKDg1ubaHa5TNu

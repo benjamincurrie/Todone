@@ -1,8 +1,10 @@
 require 'test_helper'
 
 class ListsControllerTest < ActionController::TestCase
+  
   setup do
-    @list = lists(:one)
+    log_in(:joe)
+    @list = lists(:shopping)
   end
 
   test "should get index" do

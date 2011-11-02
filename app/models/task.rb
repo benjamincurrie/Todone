@@ -5,4 +5,5 @@ class Task < ActiveRecord::Base
   scope :due_today, where(:complete=>false, :due=>Date.today)
   
   validates :name, :presence => true
+  validates :list_id, :presence => true
 end

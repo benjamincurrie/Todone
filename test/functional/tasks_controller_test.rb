@@ -2,7 +2,9 @@ require 'test_helper'
 
 class TasksControllerTest < ActionController::TestCase
   setup do
-    @task = tasks(:one)
+    log_in(:john)
+    @list = lists(:shopping)
+    @task = tasks(:milk)
   end
 
   test "should get index" do

@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   def authorize
     unless @list.user_id == user.id
       flash[:alert]  = "You are not authorized to access this task"
-      redirect_to error_url, :status => 401
+      redirect_to sign_in_url, :status => 401
     end
   end
   
